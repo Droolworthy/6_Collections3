@@ -7,7 +7,7 @@ namespace CS23
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new();
+            list<int> numbers = new();
             bool canExitApp = true;
             string userInput;
             string stopProgram = "exit";
