@@ -34,6 +34,7 @@ namespace CS23
                 }
             }
         }
+
         static void AddNumber(List<int>numbers, string userInput)
         {
             bool isSuccess = int.TryParse(userInput, out int amount);
@@ -48,6 +49,7 @@ namespace CS23
                 Console.WriteLine("Ошибка, попробуйте ещё раз.");
             }
         }
+
         static void ShowSum(List<int> numbers)
         {
             int sum = 0;
