@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace CS23
@@ -7,13 +7,13 @@ namespace CS23
     {
         static void Main(string[] args)
         {
-            list<int> numbers = new();
-            bool canExitApp = true;
+            List<int> numbers = new();
+            bool isExitApp = true;
             string userInput;
             string stopProgram = "exit";
             string summation = "sum";
 
-            while (canExitApp)
+            while (isExitApp)
             {
                 Console.WriteLine($"Сложить числа введите - {summation}");
                 Console.WriteLine($"Выйти из программы введите - {stopProgram}"); 
@@ -22,35 +22,42 @@ namespace CS23
 
                 if (userInput == summation)
                 {
-                    int value = 0;
-
-                    for (int i = 0; i < numbers.Count; i++)
-                    {
-                        value += numbers[i];
-                    }
-
-                    Console.WriteLine("Cумма: " + value);
+                    ShowSum(numbers);
                 }
                 else if (userInput == stopProgram)
                 {
-                    canExitApp = false;
+                    isExitApp = false;
                 }
                 else
                 {
-                    int amount;
-                    bool isResultReadInt = int.TryParse(userInput, out amount);
-
-                    if (isResultReadInt)
-                    {
-                        numbers.Add(amount);
-                        Console.WriteLine("Число " + amount + " добавлено");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ошибка, попробуйте ещё раз.");
-                    }
+                    AddNumber(numbers, userInput);
                 }
             }
+        }
+        static void AddNumber(List<int>numbers, string userInput)
+        {
+            bool isSuccess = int.TryParse(userInput, out int amount);
+
+            if (isSuccess)
+            {
+                numbers.Add(amount);
+                Console.WriteLine("Число " + amount + " добавлено");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка, попробуйте ещё раз.");
+            }
+        }
+        static void ShowSum(List<int> numbers)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+
+            Console.WriteLine("Cумма: " + sum);
         }
     }
 }
