@@ -30,19 +30,19 @@ namespace CS23
                 }
                 else
                 {
-                    AddNumber(numbers, userInput);
+                    TryAddNumber(numbers, userInput);
                 }
             }
         }
 
-        static void AddNumber(List<int>numbers, string userInput)
+        static void TryAddNumber(List<int>numbers, string userInput)
         {
-            bool isSuccess = int.TryParse(userInput, out int amount);
+            bool isSuccess = int.TryParse(userInput, out int amountNumbers);
 
             if (isSuccess)
             {
-                numbers.Add(amount);
-                Console.WriteLine("Число " + amount + " добавлено");
+                numbers.Add(amountNumbers);
+                Console.WriteLine("Число " + amountNumbers + " добавлено");
             }
             else
             {
